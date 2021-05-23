@@ -1,0 +1,227 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Secci&oacute;n 4</title><meta name="generator" content="MATLAB 9.7"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-05-23"><meta name="DC.source" content="Problema_4.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Secci&oacute;n 4</h1><!--introduction--><p>Construye la grafica de</p><!--/introduction--><p><img src="Problema_4_eq01226937858534237288.png" alt="$$x(t)=\sum_{k=1}^{10}cos(2{\pi}kt)$$"></p><p>para cuatro rangos (figura 2x2). Los ejes deben mostrarse en el origen adem&aacute;s de la edici&oacute;n de su preferencia.</p><p>El c&oacute;digo para obtener la grafica de <img src="Problema_4_eq14833433867325483769.png" alt="$x(t)$">  es el siguiente</p><pre class="codeinput">x=0;
+t= linspace(-2*pi,2*pi,4001);
+ <span class="keyword">for</span> i = 1:1:10
+     x=x+cos(2*pi*i*t);
+ <span class="keyword">end</span>
+
+plot(t,x,<span class="string">'b'</span>,<span class="string">'linewidth'</span>,1.5)
+plano = gca;
+plano.XAxisLocation = <span class="string">"origin"</span>;
+plano.YAxisLocation = <span class="string">"origin"</span>;
+grid <span class="string">on</span>
+axis([-3.5 3.5 -3 11])
+xlabel(<span class="string">'${t}$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+ylabel(<span class="string">'$x(t)$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+title(<span class="string">'$x(t)=\sum_{k=1}^{10}cos(2{\pi}kt)$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+</pre><img vspace="5" hspace="5" src="Problema_4_01.png" alt=""> <p>Los rangos elegidos para graficar cada figura respectivamente son:</p><div><ol><li><img src="Problema_4_eq16290714264637682728.png" alt="$[-{\pi}/2,0]$"></li><li><img src="Problema_4_eq06164349812883059799.png" alt="$[-{\pi}/3,-{\pi}/6]$"></li><li><img src="Problema_4_eq17984881344534426501.png" alt="$[4,5]$"></li><li><img src="Problema_4_eq09404805568389491567.png" alt="$[{\pi}/20,{\pi}/10]$"></li></ol></div><pre class="codeinput"><span class="comment">%Rango 1</span>
+subplot(2,2,1)
+
+plot(t,x,<span class="string">'b'</span>,<span class="string">'linewidth'</span>,1.5)
+plano = gca;
+plano.XAxisLocation = <span class="string">"origin"</span>;
+plano.YAxisLocation = <span class="string">"origin"</span>;
+grid <span class="string">on</span>
+axis([-pi/2 0 -3 11])
+xlabel(<span class="string">'${t}$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+ylabel(<span class="string">'$x(t)$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+title(<span class="string">'$x(t)=\sum_{k=1}^{10}cos(2{\pi}kt)$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+
+<span class="comment">%Rango 2</span>
+subplot(2,2,2)
+
+plot(t,x,<span class="string">'r'</span>,<span class="string">'linewidth'</span>,1.5)
+plano = gca;
+plano.XAxisLocation = <span class="string">"origin"</span>;
+plano.YAxisLocation = <span class="string">"origin"</span>;
+grid <span class="string">on</span>
+axis([-pi/3 -pi/6 -3 11])
+xlabel(<span class="string">'${t}$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+ylabel(<span class="string">'$x(t)$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+title(<span class="string">'$x(t)=\sum_{k=1}^{10}cos(2{\pi}kt)$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+
+<span class="comment">%Rango 3</span>
+subplot(2,2,3)
+
+plot(t,x,<span class="string">'g'</span>,<span class="string">'linewidth'</span>,1.5)
+plano = gca;
+plano.XAxisLocation = <span class="string">"origin"</span>;
+plano.YAxisLocation = <span class="string">"origin"</span>;
+grid <span class="string">on</span>
+axis([4 5 -3 11])
+xlabel(<span class="string">'${t}$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+ylabel(<span class="string">'$x(t)$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+title(<span class="string">'$x(t)=\sum_{k=1}^{10}cos(2{\pi}kt)$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+
+<span class="comment">%Rango 4</span>
+subplot(2,2,4)
+
+plot(t,x,<span class="string">'y'</span>,<span class="string">'linewidth'</span>,1.5)
+plano = gca;
+plano.XAxisLocation = <span class="string">"origin"</span>;
+plano.YAxisLocation = <span class="string">"origin"</span>;
+grid <span class="string">on</span>
+axis([pi/20 pi/10 -3 11])
+xlabel(<span class="string">'${t}$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+ylabel(<span class="string">'$x(t)$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+title(<span class="string">'$x(t)=\sum_{k=1}^{10}cos(2{\pi}kt)$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+</pre><img vspace="5" hspace="5" src="Problema_4_02.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Sección 4
+% Construye la grafica de 
+%%
+% 
+% $$x(t)=\sum_{k=1}^{10}cos(2{\pi}kt)$$
+% 
+% para cuatro rangos (figura 2x2). Los ejes deben mostrarse en el origen además de la edición de su preferencia.
+%% 
+% El código para obtener la grafica de $x(t)$  es el siguiente
+x=0;
+t= linspace(-2*pi,2*pi,4001);
+ for i = 1:1:10
+     x=x+cos(2*pi*i*t);
+ end
+ 
+plot(t,x,'b','linewidth',1.5)
+plano = gca;
+plano.XAxisLocation = "origin";
+plano.YAxisLocation = "origin";
+grid on
+axis([-3.5 3.5 -3 11])
+xlabel('${t}$','interpreter','latex')
+ylabel('$x(t)$','interpreter','latex')
+title('$x(t)=\sum_{k=1}^{10}cos(2{\pi}kt)$','interpreter','latex')
+%%
+% Los rangos elegidos para graficar cada figura respectivamente son:
+%%
+% 
+% # $[-{\pi}/2,0]$
+% # $[-{\pi}/3,-{\pi}/6]$
+% # $[4,5]$
+% # $[{\pi}/20,{\pi}/10]$
+
+%Rango 1
+subplot(2,2,1)
+
+plot(t,x,'b','linewidth',1.5)
+plano = gca;
+plano.XAxisLocation = "origin";
+plano.YAxisLocation = "origin";
+grid on
+axis([-pi/2 0 -3 11])
+xlabel('${t}$','interpreter','latex')
+ylabel('$x(t)$','interpreter','latex')
+title('$x(t)=\sum_{k=1}^{10}cos(2{\pi}kt)$','interpreter','latex')
+
+%Rango 2
+subplot(2,2,2)
+
+plot(t,x,'r','linewidth',1.5)
+plano = gca;
+plano.XAxisLocation = "origin";
+plano.YAxisLocation = "origin";
+grid on
+axis([-pi/3 -pi/6 -3 11])
+xlabel('${t}$','interpreter','latex')
+ylabel('$x(t)$','interpreter','latex')
+title('$x(t)=\sum_{k=1}^{10}cos(2{\pi}kt)$','interpreter','latex')
+
+%Rango 3
+subplot(2,2,3)
+
+plot(t,x,'g','linewidth',1.5)
+plano = gca;
+plano.XAxisLocation = "origin";
+plano.YAxisLocation = "origin";
+grid on
+axis([4 5 -3 11])
+xlabel('${t}$','interpreter','latex')
+ylabel('$x(t)$','interpreter','latex')
+title('$x(t)=\sum_{k=1}^{10}cos(2{\pi}kt)$','interpreter','latex')
+
+%Rango 4
+subplot(2,2,4)
+
+plot(t,x,'y','linewidth',1.5)
+plano = gca;
+plano.XAxisLocation = "origin";
+plano.YAxisLocation = "origin";
+grid on
+axis([pi/20 pi/10 -3 11])
+xlabel('${t}$','interpreter','latex')
+ylabel('$x(t)$','interpreter','latex')
+title('$x(t)=\sum_{k=1}^{10}cos(2{\pi}kt)$','interpreter','latex')
+
+
+
+
+
+##### SOURCE END #####
+--></body></html>
